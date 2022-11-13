@@ -554,28 +554,30 @@ nav > .nav-container > .menu > .list-menu > a:hover {
     min-width: 60px;
     height: 70%;
     padding: 5px 20px;
-    background-color: #003566;
-    border: 1px solid #003566;
+    background-color: #7cd1f9;
+    border: 1px solid #7cd1f9;
+    border-radius: 3px;
     color: #f9f9f9;
     cursor: pointer;
 }
 
 .candidate-pair-details > .contents-detail > .bottom > .choice > .btn-select:hover {
-    background-color: #022e58;
+    background-color: #62cbfc;
 }
 
 .candidate-pair-details > .contents-detail > .bottom > .choice > .btn-cancel {
     min-width: 60px;
     height: 70%;
     padding: 5px 20px;
-    background-color: #de4343;
-    border: 1px solid #de4343;
+    background-color: #cc0000;
+    border: 1px solid #cc0000;
+    border-radius: 3px;
     color: #f9f9f9;
     cursor: pointer;
 }
 
 .candidate-pair-details > .contents-detail > .bottom > .choice > .btn-cancel:hover {
-    background-color: #dd3636;
+    background-color: #bf0101;
 }
  
 .candidate-pair-details > .colors,
@@ -649,8 +651,8 @@ nav > .nav-container > .menu > .list-menu > a:hover {
 }
 
 .feedback-contents > .feedback {
-    width: 200px;
-    height: 110px;
+    width: 300px;
+    height: 120px;
     border: 1px solid rgb(227, 226, 226);
     /* border-radius: 3px; */
     overflow: hidden;
@@ -660,7 +662,7 @@ nav > .nav-container > .menu > .list-menu > a:hover {
 }
 
 .feedback-contents > .colors {
-    width: 200px;
+    width: 300px;
     height: 4px;
     border-radius: 4px;
     /* border: 1px solid red; */
@@ -738,33 +740,33 @@ nav > .nav-container > .menu > .list-menu > a:hover {
 }
 
 .feedback-contents > .feedback > .bottom > .box:nth-child(2) > .btn-yes {
-    min-width: 50px;
-    height: 70%;
-    background-color: #003566;
-    border: 1px solid #003566;
+    min-width: 55px;
+    height: 75%;
+    background-color: #7cd1f9;
+    border: 1px solid #7cd1f9;
     color: #f9f9f9;
-    font-size: 11px;
-    /* border-radius: 3px; */
+    font-size: 12px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
 .feedback-contents > .feedback > .bottom > .box:nth-child(2) > .btn-no {
-    min-width: 50px;
-    height: 70%;
-    background-color: #de4343;
-    border: 1px solid #de4343;
+    min-width: 55px;
+    height: 75%;
+    background-color: #cc0000;
+    border: 1px solid #cc0000;
     color: #f9f9f9;
-    font-size: 11px;
-    /* border-radius: 3px; */
+    font-size: 12px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
 .feedback-contents > .feedback > .bottom > .box:nth-child(2) > .btn-yes:hover {
-    background-color: #022e58;
+    background-color: #62cbfc;
 }
 
 .feedback-contents > .feedback > .bottom > .box:nth-child(2) > .btn-no:hover {
-    background-color: #dd3636;
+    background-color: #bf0101;
 }
 
 

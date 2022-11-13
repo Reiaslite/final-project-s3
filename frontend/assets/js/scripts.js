@@ -38,5 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.getElementsByClassName('candidate-pair-details')[0].classList.remove('active');
         }, 0);
+
+        setTimeout(() => {
+            swal("Berhasil", "Anda telah berhail memilih calon ini", "success");
+        }, 1000)
     })
 })
