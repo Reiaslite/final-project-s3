@@ -462,6 +462,7 @@ nav > .nav-container > .menu > .list-menu > a:hover {
     display: flex;
     justify-content: right;
     align-items: center;
+    /* border: 1px solid #000; */
 }
 
 .candidate-pair-details > .contents-detail > .top > .close-container {
@@ -491,6 +492,91 @@ nav > .nav-container > .menu > .list-menu > a:hover {
 .candidate-pair-details > .contents-detail > .top > .close-container > span:nth-child(2) {
     transform: rotate(-45deg);
 }
+
+
+.candidate-pair-details > .contents-detail > .bottom {
+    flex: 1;
+    /* border: 1px solid #146eff; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .person {
+    width: 130px;
+    display: flex;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .person > img {
+    width: 100%;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .desc {
+    width: 100%;
+    flex: 1;
+    /* border: 1px solid blue; */
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .desc > h5 {
+    color: #333;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .desc > .important {
+    text-align: center;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .desc p {
+    color: #333;
+    font-size: 12px;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .choice {
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .choice > .btn-select {
+    min-width: 60px;
+    height: 70%;
+    padding: 5px 20px;
+    background-color: #003566;
+    border: 1px solid #003566;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .choice > .btn-select:hover {
+    background-color: #022e58;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .choice > .btn-cancel {
+    min-width: 60px;
+    height: 70%;
+    padding: 5px 20px;
+    background-color: #de4343;
+    border: 1px solid #de4343;
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+.candidate-pair-details > .contents-detail > .bottom > .choice > .btn-cancel:hover {
+    background-color: #dd3636;
+}
  
 .candidate-pair-details > .colors {
     width: 600px;
@@ -500,7 +586,6 @@ nav > .nav-container > .menu > .list-menu > a:hover {
     border-radius: 4px;
     overflow: hidden;
 }
-
 
 .candidate-pair-details > .colors > .color:nth-child(1) {
     background-color: #92d115;
