@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f9f9f9;
@@ -271,6 +275,10 @@ nav > .nav-container > .menu > .list-menu > a:hover {
     color: #f9f9f9;
     font-size: 14px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 .jumbotron > .container > .box:nth-child(2) > .btn-choice:hover {

@@ -52,3 +52,16 @@ for (const bottom of bottoms) {
         })
     });
 };
+
+// events links on click
+const links =  document.getElementsByClassName('page-scroll');
+for (const link of links) {
+  link.addEventListener('click', (e) => {
+    const attr = link.getAttribute('href');
+    const elementHref = document.querySelector(attr);
+    // console.log(elementHref.offsetTop)
+    const offset = elementHref.offsetTop - 70;
+    document.querySelector('html, body').scrollTop = offset;
+    e.preventDefault();
+  })
+}
