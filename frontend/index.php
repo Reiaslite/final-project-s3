@@ -19,10 +19,10 @@
                 </div>
                 <ul class="menu">
                     <li class="list-menu">
-                        <a href="signin.html">Masuk</a>
+                        <a href="signin.php">Masuk</a>
                     </li>
                     <li class="list-menu">
-                        <a href="signup.html">Daftar</a>
+                        <a href="signup.php">Daftar</a>
                     </li>
                     <li class="list-menu">
                         <input type="text" placeholder="search" class="search">

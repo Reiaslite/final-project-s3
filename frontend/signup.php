@@ -1,3 +1,37 @@
+ <?php
+ define('BASEPATH', 'public');
+
+ require_once '../backend/connection.php';
+
+
+$db = new Database();
+if(isset($_POST['submit'])){
+    $nama = $_POST['name'];
+    $nis = $_POST['nis'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if($result = $db->register($nama, $nis, $email, $password)){
+        $sukses=true;
+    }else{
+        $error = $user->getLastError();
+    }
+
+}
+
+ //don't delete
+// $db = new Database();
+// if (isset($_POST['submit'])):
+//     $name = $_POST['name'];
+//     $nis = $_POST['nis'];
+//     $email = $_POST['email'];
+//     $password = $_POST['password'];
+
+//     $result = $db->insert($name, $nis, $email, $password);
+//     header("Location: signin.php");
+// endif;
+// ?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +61,7 @@
                 </div>
             </div>
             <div class="box">
-                <form action="" method="post">
+                <form method="post">
                     <div class="form-element">
                         <input type="text" name="name" placeholder="name" required>
                     </div>
@@ -40,14 +74,18 @@
                     <div class="form-element">
                         <input type="password" name="password" placeholder="password" required>
                     </div>
-                    <button type="submit" class="btn-signup">Daftar</button>
-                    <h5>Anda sudah mempunyai akun? <a href="signin.html">Masuk</a></h5>
+                    <button type="submit" class="btn-signup" name="submit" value="submit">Daftar</button>
+                    <h5>Anda sudah mempunyai akun? <a href="signin.php">Masuk</a></h5>
                 </form>
             </div>
         </div>
     </div>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/js/signup.js"></script>
+    <?php if(isset($sukses)==1):?>
+        <script src="assets/js/signup.js"></script>
+    <?php endif ?>
+
+    
 </body>
 </html>
