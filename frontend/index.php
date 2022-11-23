@@ -70,7 +70,34 @@ session_start();
         </div>
 
         <div class="contents" id="bodyCard">
+
+            <?php for($i = 0; $i<=10; $i++){?>
             <div class="card">
+                <div class="image">
+                    <img src="assets/img/4.jpeg" alt="">
+                </div>
+                <div class="desc">
+                    <div class="top">
+                        <h5>The standard chunk of Lorem ipsum</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur....</p>
+                    </div>
+                    <div class="bottom">
+                        <div class="left">
+                            <h5>Read more</h5>
+                        </div>
+                        <div class="right">
+                            <div class="box">
+                                <i class="fa-solid fa-greater-than"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-nail">
+                    <i class="fa-solid fa-pencil"></i>
+                </div>
+            </div>
+            <?php } ?>
+            <!-- <div class="card">
                 <div class="image">
                     <img src="assets/img/4.jpeg" alt="">
                 </div>
@@ -237,31 +264,7 @@ session_start();
                 <div class="box-nail">
                     <i class="fa-solid fa-pencil"></i>
                 </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="container-menu">

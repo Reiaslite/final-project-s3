@@ -58,7 +58,20 @@ class Database {
     function logout(){
         session_destroy();
     }
-    
+    function data(){
+      try{
+        $query = "SELECT * kandidat" ;
+
+        $stmt = mysqli_query($this->db,$query);
+        if($stmt->num_rows > 0){
+          $row = mysqli_fetch_assoc($stmt);
+  
+        }
+      }catch(Exception $e){
+        
+      }
+     
+    } 
    
 
 }
