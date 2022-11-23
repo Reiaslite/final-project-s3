@@ -48,7 +48,7 @@ endif;
         <div class="signup">
             <div class="box">
                 <div class="image-container">
-                    <a href="index.html"><img src="assets/img/tutwuri.png"></a>
+                    <img src="assets/img/tutwuri.png">
                 </div>
             </div>
             <div class="box">
