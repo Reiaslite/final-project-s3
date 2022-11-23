@@ -17,7 +17,7 @@
         $result = $db->login($name, $password);
         if ($result === true){
             $_SESSION['login'] = true;
-            header("Location: index.php");
+           // header("Location: index.php");
             echo "selamat datang " . $_SESSION['nama'];
            
         }
