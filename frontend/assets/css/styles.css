@@ -547,8 +547,8 @@ nav > .nav-container > .menu > .list-menu > a:hover {
     align-items: center;
 }
 
-.contents-signin > .signin > .box:nth-child(1) > .image-container > a > img,
-.contents-signup > .signup > .box:nth-child(1) > .image-container > a > img {
+.contents-signin > .signin > .box:nth-child(1) > .image-container > img,
+.contents-signup > .signup > .box:nth-child(1) > .image-container > img {
     width: 100%;
     height: auto;
 }
