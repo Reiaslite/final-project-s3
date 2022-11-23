@@ -1,36 +1,27 @@
  <?php
+
+use LDAP\Result;
+
  define('BASEPATH', 'public');
 
  require_once '../backend/connection.php';
 
-
+ 
 $db = new Database();
-if(isset($_POST['submit'])){
-    $nama = $_POST['name'];
+if (isset($_POST['submit'])):
+    $name = $_POST['name'];
     $nis = $_POST['nis'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if($result = $db->register($nama, $nis, $email, $password)){
-        $sukses=true;
-    }else{
-        $error = $user->getLastError();
+    $result = $db->insert($name, $nis, $email, $password);
+    
+    if($result==true){
+       header("Location: signin.php");
     }
-
-}
-
- //don't delete
-// $db = new Database();
-// if (isset($_POST['submit'])):
-//     $name = $_POST['name'];
-//     $nis = $_POST['nis'];
-//     $email = $_POST['email'];
-//     $password = $_POST['password'];
-
-//     $result = $db->insert($name, $nis, $email, $password);
-//     header("Location: signin.php");
-// endif;
-// ?> 
+    
+endif;
+?> 
 
 <!DOCTYPE html>
 <html lang="en">

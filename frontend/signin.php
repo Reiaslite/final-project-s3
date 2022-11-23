@@ -1,14 +1,30 @@
 <?php 
+
+    session_start();
     define('BASEPATH','public');
     require_once '../backend/connection.php';
+    //jika sudah login tidak bisa kembali kehalaman login
+    // if (isset($_SESSION['login'])) {
+    //     header("Location: index.php");
+    // }
 
+    //Login
     $db = new Database();
     if (isset($_POST['submit'])) {
         $name = $_POST['username'];
         $password = $_POST['password'];
         
         $result = $db->login($name, $password);
-
+        if ($result === true){
+            $_SESSION['login'] = true;
+           // header("Location: index.php");
+            echo "selamat datang " . $_SESSION['nama'];
+           
+        }
+        echo '<script language="javascript">';
+        echo 'alert("email atau password salah")';
+        echo '</script>';
+        
 }
   
 
@@ -45,7 +61,7 @@
                 
                 <form  method="post">
                     <div class="form-element">
-                        <input type="text" name="username" placeholder="username" required>
+                        <input type="email" name="username" placeholder="Email" required>
                     </div>
                     <div class="form-element">
                         <input type="password" name="password" placeholder="password" required>

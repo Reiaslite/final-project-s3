@@ -1,8 +1,8 @@
 <?php 
 defined("BASEPATH") or exit("No direct script access allowed");
-
 include_once 'const.php';
 
+session_start();
 class Database {    
     public $db;
     private $error;
@@ -19,58 +19,46 @@ class Database {
 
 
     function insert($nama, $nis, $email, $password) {
-        $query = "INSERT INTO siswa (nama, nis, email, password) VALUES (?, ?, ?, ?)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssss", $nama, $nis, $email, $password);
-        $stmt->execute();
-
-        return $stmt->affected_rows;
-    }
-
-    function login($name, $password){
-    $query = "SELECT * FROM siswa WHERE nama = :nama";
-
-      $stmt = $this->db->prepare($query);
-
-      $stmt->bind_Param(":nama", $name);
-      
-      $stmt->execute();
-      
-      $data = $stmt->fetch(); 
-     
-      if ($stmt->num_rows() >0) {
-        echo "selamat datang";
-        
-      }else {
-        echo "username atau password salah";
-      }
+        try {
+            $query = "INSERT INTO siswa (nama, nis, email, password) VALUES (?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssss", $nama, $nis, $email, $password);
+            $stmt->execute();
+            
+            // return $stmt->affected_rows;
+           } 
+           catch (mysqli_sql_exception $e) {
+             if($e->getCode() == 1062 ){
+                echo "Email sudah digunakan";
+                return false;
+             }
+            
+        }
+        return true;
        
     }
 
-    function register($name,$nis, $email, $password){
-        try {
+    function login($email, $password){
+    $query = "SELECT * FROM siswa WHERE email = '$email' and password = '$password'";
 
-            $hashPass= password_hash($password, PASSWORD_DEFAULT);
-
-            $query = "INSERT INTO siswa (nama, nis, email, password) VALUES (?,?,?,?)";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_Param("ssss", $name, $nis,$email, $password);
-            $stmt->execute();
-
-            return true;
-
-
-        } catch (PDOException $e) {
-            $this->error;
-
-            if(str_contains($e, $e->getMessage())){
-                $this->error = "nama sudah digunakan";
-                return false;
-            }else{
-                echo $e->getMessage();
-            }
-        }
+      $stmt = mysqli_query($this->db, $query);
+      
+      if ($stmt->num_rows >0) {
+     $row = mysqli_fetch_assoc($stmt);
+     $_SESSION['nama']=$row["nama"];
+    
+        return true;
+        
+      }else {
+           
+        return false;
+      }
+       
     }
+    function logout(){
+        session_destroy();
+    }
+    
    
 
 }
