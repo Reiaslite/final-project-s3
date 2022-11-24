@@ -132,7 +132,7 @@ nav > .nav-container > .menu > .list-menu > h5 {
 }
 
 
-nav > .nav-container > .menu > .list-menu > .btn-logout,
+nav > .nav-container > .menu > .list-menu > form > .btn-logout,
 .container-menu > .menu-mobile > .list-menu > .btn-logout {
     border: none;
     background-color: #003566 !important;

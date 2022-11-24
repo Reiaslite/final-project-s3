@@ -1,10 +1,16 @@
 <?php 
-session_start();
+define('BASEPATH','public');
+require_once "../backend/connection.php";
+
+$db = new Database();
     if(!isset($_SESSION['login'])){
         header("Location: signin.php");
          exit;
     }
     
+    if(isset($_POST['logout'])){
+            $db->logout();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" id="home">
@@ -27,17 +33,14 @@ session_start();
                 </div>
                 <ul class="menu">
                     <li class="list-menu">
-                        <h5>User</h5>
+                        <h5><?= $_SESSION['nama']?></h5> 
                     </li>
                     <li class="list-menu">
-                        <button type="submit" class="btn-logout">Logout</button>
+                        <form action="" method="post">
+                            <button type="submit" class="btn-logout" name='logout'>Logout</button>
+                        </form>
                     </li>
-                    <!-- <li class="list-menu">
-                        <input type="text" placeholder="search" class="search">
-                        <button type="submit" class="btn-search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </li> -->
+                
                 </ul>
 
                 <div class="hamburger-container">
@@ -71,7 +74,7 @@ session_start();
 
         <div class="contents" id="bodyCard">
 
-            <?php for($i = 0; $i<=10; $i++){?>
+            <?php for($i = 0; $i<=4; $i++){?>
             <div class="card">
                 <div class="image">
                     <img src="assets/img/4.jpeg" alt="">
@@ -107,12 +110,6 @@ session_start();
                 <li class="list-menu">
                     <button type="submit" class="btn-logout">Logout</button>
                 </li>
-                <!-- <li class="list-menu">
-                    <input type="text" placeholder="search" class="search">
-                    <button type="submit" class="btn-search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </li> -->
             </ul>
         </div>
 

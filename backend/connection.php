@@ -56,7 +56,9 @@ class Database {
        
     }
     function logout(){
+        session_unset();
         session_destroy();
+        header("Location:signin.php");
     }
     function data(){
       try{
