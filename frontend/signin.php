@@ -1,6 +1,6 @@
 <?php 
 
-    session_start();
+    // session_start();
     define('BASEPATH','public');
     require_once '../backend/connection.php';
     //jika sudah login tidak bisa kembali kehalaman login
@@ -17,9 +17,9 @@
         $result = $db->login($name, $password);
         if ($result === true){
             $_SESSION['login'] = true;
-           // header("Location: index.php");
-            echo "selamat datang " . $_SESSION['nama'];
-           
+           header("Location: index.php");
+            // echo "selamat datang " . $_SESSION['nama'];
+           exit;
         }
         echo '<script language="javascript">';
         echo 'alert("email atau password salah")';

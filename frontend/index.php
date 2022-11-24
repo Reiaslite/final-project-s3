@@ -27,17 +27,17 @@ session_start();
                 </div>
                 <ul class="menu">
                     <li class="list-menu">
-                        <a href="signin.php">Masuk</a>
+                        <h5>User</h5>
                     </li>
                     <li class="list-menu">
-                        <a href="signup.php">Daftar</a>
+                        <button type="submit" class="btn-logout">Logout</button>
                     </li>
-                    <li class="list-menu">
+                    <!-- <li class="list-menu">
                         <input type="text" placeholder="search" class="search">
                         <button type="submit" class="btn-search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <div class="hamburger-container">
@@ -97,190 +97,22 @@ session_start();
                 </div>
             </div>
             <?php } ?>
-            <!-- <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div>
-            <div class="card">
-                <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="left">
-                            <h5>Read more</h5>
-                        </div>
-                        <div class="right">
-                            <div class="box">
-                                <i class="fa-solid fa-greater-than"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-nail">
-                    <i class="fa-solid fa-pencil"></i>
-                </div>
-            </div> -->
         </div>
 
         <div class="container-menu">
             <ul class="menu-mobile">
                 <li class="list-menu">
-                    <a href="signin.html">Masuk</a>
+                    <h5>User</h5>
                 </li>
                 <li class="list-menu">
-                    <a href="signup.html">Daftar</a>
+                    <button type="submit" class="btn-logout">Logout</button>
                 </li>
-                <li class="list-menu">
+                <!-- <li class="list-menu">
                     <input type="text" placeholder="search" class="search">
                     <button type="submit" class="btn-search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
-                </li>
+                </li> -->
             </ul>
         </div>
 

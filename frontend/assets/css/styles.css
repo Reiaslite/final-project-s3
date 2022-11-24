@@ -124,11 +124,22 @@ nav > .nav-container > .menu > .list-menu:nth-child(3) > .btn-search:hover {
     background-color: rgb(228, 226, 226);
 }
 
-nav > .nav-container > .menu > .list-menu > a {
+nav > .nav-container > .menu > .list-menu > h5 {
     color: #e2e1e1;
     font-size: 14px;
     text-decoration: none;
     font-weight: 500;
+}
+
+
+nav > .nav-container > .menu > .list-menu > .btn-logout,
+.container-menu > .menu-mobile > .list-menu > .btn-logout {
+    border: none;
+    background-color: #003566 !important;
+    color: #e2e1e1;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 nav > .nav-container > .logo > h3 > a:hover,
@@ -166,7 +177,7 @@ nav > .nav-container > .menu > .list-menu > a:hover {
     justify-content: space-around;
 }
 
-.container-menu > .menu-mobile > .list-menu > a {
+.container-menu > .menu-mobile > .list-menu > h5 {
     display: block;
     color: #e2e1e1;
     text-decoration: none;
@@ -794,7 +805,7 @@ footer > .container > h5 {
 
 ::-webkit-scrollbar-thumb {
     background-color: #d6dee1;
-    border-radius: 3px;
+    border-radius: 10px;
     border: 2px solid transparent;
     background-clip: content-box;
 }
