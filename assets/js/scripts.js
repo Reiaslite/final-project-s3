@@ -27,8 +27,22 @@ for (const bottom of bottoms) {
               cancelButtonColor: '#d33',
               confirmButtonText: 'Ya',
               cancelButtonText: 'Tidak'
-            }).then((result) => {
+            }).then(async (result) => {
               if (result.isConfirmed) {
+                const form = new FormData();
+                const id = bottom.getAttribute("data-id");
+                const count = bottom.getAttribute("data-count");
+                form.append("user_id", getCookieKey("id"));
+                form.append("id", id);
+                form.append("count", count);
+
+                const response = await fetch('api/accept.php', {
+                  method: 'POST',
+                  body: form
+                });
+                console.log(response);
+                const json = await response.json();
+                console.log(json);
                 Swal.fire(
                   'Berhasil!',
                   'Anda berhasil memilih calon ini!',
@@ -56,7 +70,7 @@ for (const bottom of bottoms) {
 // events links on click
 const links =  document.getElementsByClassName('page-scroll');
 for (const link of links) {
-  link.addEventListener('click', (e) => {
+  link.addEventListener('cl', (e) => {
     const attr = link.getAttribute('href');
     const elementHref = document.querySelector(attr);
     // console.log(elementHref.offsetTop)
@@ -64,4 +78,10 @@ for (const link of links) {
     document.querySelector('html, body').scrollTop = offset;
     e.preventDefault();
   })
+}
+
+const getCookieKey = (key) => {
+  const cookie = document.cookie;
+  
+  return cookie.split(`${key}=`)[1].split(';')[0];
 }

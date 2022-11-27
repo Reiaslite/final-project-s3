@@ -1,6 +1,6 @@
 <?php 
 define('BASEPATH','public');
-require_once "../backend/connection.php";
+require_once "connection.php";
 
 $db = new Database();
     if(!isset($_SESSION['login'])){
@@ -74,17 +74,23 @@ $db = new Database();
 
         <div class="contents" id="bodyCard">
 
-            <?php for($i = 0; $i<=4; $i++){?>
+            <?php 
+                $query = "SELECT * FROM kandidat";
+                $result = mysqli_query($db->db,$query);
+            if(mysqli_num_rows($result)>0){
+
+            
+            while($row = mysqli_fetch_assoc($result)){?>
             <div class="card">
                 <div class="image">
                     <img src="assets/img/4.jpeg" alt="">
                 </div>
                 <div class="desc">
                     <div class="top">
-                        <h5>The standard chunk of Lorem ipsum</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur....</p>
+                        <h5><?= $row['nama']?></h5>
+                        <p><?= $row['kelas']?></p>
                     </div>
-                    <div class="bottom">
+                    <div class="bottom" data-id="<?= $row['id'] ?>" data-count="<?= $row['count'] ?>">
                         <div class="left">
                             <h5>Read more</h5>
                         </div>
@@ -99,7 +105,10 @@ $db = new Database();
                     <i class="fa-solid fa-pencil"></i>
                 </div>
             </div>
-            <?php } ?>
+            <?php
+             } 
+            }
+            ?>
         </div>
 
         <div class="container-menu">

@@ -1,10 +1,7 @@
  <?php
-
-use LDAP\Result;
-
  define('BASEPATH', 'public');
 
- require_once '../backend/connection.php';
+ require_once 'connection.php';
 
  
 $db = new Database();

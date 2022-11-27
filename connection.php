@@ -44,9 +44,13 @@ class Database {
       $stmt = mysqli_query($this->db, $query);
       
       if ($stmt->num_rows >0) {
-     $row = mysqli_fetch_assoc($stmt);
-     $_SESSION['nama']=$row["nama"];
-    
+        $row = mysqli_fetch_assoc($stmt);
+        $_SESSION['nama']=$row["nama"];
+        $_SESSION['id'] = $row['id'];
+        setcookie(
+          "id",
+          $_SESSION['id']
+        );
         return true;
         
       }else {
@@ -60,20 +64,33 @@ class Database {
         session_destroy();
         header("Location:signin.php");
     }
+
+
     function data(){
       try{
-        $query = "SELECT * kandidat" ;
+        $query = "SELECT * FROM kandidat" ;
 
         $stmt = mysqli_query($this->db,$query);
-        if($stmt->num_rows > 0){
-          $row = mysqli_fetch_assoc($stmt);
-  
+        
+        if(mysqli_num_rows($stmt) > 0){
+
+         return $stmt;
+        }else{
+          return 0;
         }
       }catch(Exception $e){
-        
+        echo $e->getMessage();
       }
      
     } 
    
-
+    function vote($id, $user_id, $recent_count) {
+      
+      $query = "UPDATE siswa SET is_voted=1 WHERE id=$user_id";
+      mysqli_query($this->db, $query);
+      
+      $query = "UPDATE kandidat SET count=$recent_count+1 WHERE id=$id";
+      mysqli_query($this->db, $query);
+      
+    }
 }

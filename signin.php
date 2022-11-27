@@ -2,7 +2,7 @@
 
     // session_start();
     define('BASEPATH','public');
-    require_once '../backend/connection.php';
+    require_once 'connection.php';
     //jika sudah login tidak bisa kembali kehalaman login
     // if (isset($_SESSION['login'])) {
     //     header("Location: index.php");
@@ -21,10 +21,11 @@
             // echo "selamat datang " . $_SESSION['nama'];
            exit;
         }
-        echo '<script language="javascript">';
-        echo 'alert("email atau password salah")';
-        echo '</script>';
-        
+        echo "
+            <script>
+                alert('email atau password salah');
+            </script>
+        ";
 }
   
 
