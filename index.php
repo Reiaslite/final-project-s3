@@ -83,12 +83,12 @@ $db = new Database();
             while($row = mysqli_fetch_assoc($result)){?>
             <div class="card">
                 <div class="image">
-                    <img src="assets/img/4.jpeg" alt="">
+                    <img src="assets/img/<?=$row['foto']?>.jpeg" alt="">
                 </div>
                 <div class="desc">
                     <div class="top">
                         <h5><?= $row['nama']?></h5>
-                        <p><?= $row['kelas']?></p>
+                        <p><?= $row['misi']?></p>
                     </div>
                     <div class="bottom" data-id="<?= $row['id'] ?>" data-count="<?= $row['count'] ?>">
                         <div class="left">

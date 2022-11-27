@@ -93,4 +93,12 @@ class Database {
       mysqli_query($this->db, $query);
       
     }
+
+    function getKandidat($id){
+      $query = "SELECT * FROM kandidat WHERE id = '$id'";
+      $result = mysqli_query($this->db, $query);
+
+      return $result->fetch_assoc();  
+    
+    }
 }

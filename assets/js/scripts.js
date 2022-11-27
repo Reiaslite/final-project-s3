@@ -5,9 +5,21 @@ document.getElementsByClassName('hamburger-container')[0].addEventListener('clic
 
 const bottoms = document.getElementsByClassName('bottom');
 for (const bottom of bottoms) {
-    bottom.addEventListener('click', () => {
+
+    bottom.addEventListener('click',async () => {
+        const id = bottom.getAttribute('data-id');
+        const response = await fetch(`api/getkandidat.php?id=${id}`);
+        const json= await response.json();
+        const data = json.data;
+        console.log(id);
         swal.fire({
-          html: '<h5 class="important5">Nama Calon</h5>' + '<h5 class="important5">Kelas Calon</h5>' + '<h4 class="important4">Visi</h4>' + '<p class="importantp">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi veniam tempora minima consequatur ipsum sunt.</p>' + '<h4 class="important4">Misi</h4>' +'<p class="importantp">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nesciunt officia at adipisci dolore facere.</p>',
+          html:`<h5 class="important5">${data.nama}</h5>
+          <h5 class="important5">${data.kelas}</h5>
+          <h4 class="important4">Visi</h4>
+          <p class="important">${data.visi}</p>
+          <h4 class="important4">Misi</h4>
+          <p class="importantp">${data.misi}</p>
+         `,
           imageUrl: 'assets/img/4.jpeg',
           imageWidth: 150,
           imageHeight: 'auto',
