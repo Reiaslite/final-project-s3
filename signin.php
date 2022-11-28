@@ -17,15 +17,14 @@
         $result = $db->login($name, $password);
         if ($result === true){
             $_SESSION['login'] = true;
-           header("Location: index.php");
+            header("Location: index.php");
             // echo "selamat datang " . $_SESSION['nama'];
-           exit;
+            exit;
+        } else if ($result === false) {
+            echo "<script>
+                alert('Kamu telah memilih kandidat, atau email/password salah');
+            </script>";
         }
-        echo "
-            <script>
-                alert('email atau password salah');
-            </script>
-        ";
 }
   
 

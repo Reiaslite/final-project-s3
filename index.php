@@ -83,7 +83,7 @@ $db = new Database();
             while($row = mysqli_fetch_assoc($result)){?>
             <div class="card">
                 <div class="image">
-                    <img src="assets/img/<?=$row['foto']?>.jpeg" alt="">
+                    <img src="assets/img/<?=$row['foto']?>" alt="">
                 </div>
                 <div class="desc">
                     <div class="top">

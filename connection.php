@@ -42,9 +42,12 @@ class Database {
     $query = "SELECT * FROM siswa WHERE email = '$email' and password = '$password'";
 
       $stmt = mysqli_query($this->db, $query);
-      
       if ($stmt->num_rows >0) {
         $row = mysqli_fetch_assoc($stmt);
+        if ($row['is_voted'] == 1) {
+          return false;
+        }
+
         $_SESSION['nama']=$row["nama"];
         $_SESSION['id'] = $row['id'];
         setcookie(
@@ -52,9 +55,10 @@ class Database {
           $_SESSION['id']
         );
         return true;
+
         
       }else {
-           
+        
         return false;
       }
        
@@ -84,14 +88,23 @@ class Database {
      
     } 
    
-    function vote($id, $user_id, $recent_count) {
-      
-      $query = "UPDATE siswa SET is_voted=1 WHERE id=$user_id";
+    function vote($id, $user_id) {
+      $query = "SELECT * FROM siswa WHERE id='$user_id'";
+      $user = mysqli_query($this->db, $query)->fetch_assoc();
+      if ($user['is_voted'] === 1) return false;
+
+      $query = "UPDATE siswa SET is_voted=1 WHERE id='$user_id'";
       mysqli_query($this->db, $query);
       
-      $query = "UPDATE kandidat SET count=$recent_count+1 WHERE id=$id";
-      mysqli_query($this->db, $query);
-      
+      $query = "SELECT * FROM kandidat WHERE id='$id'";
+
+      $kandidat = mysqli_query($this->db, $query)->fetch_assoc();
+      $count = $kandidat['count'] + 1;
+
+      $query = "UPDATE kandidat SET count=$count WHERE id='$id'";
+      $result = mysqli_query($this->db, $query);
+
+      return true;
     }
 
     function getKandidat($id){

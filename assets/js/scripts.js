@@ -20,7 +20,7 @@ for (const bottom of bottoms) {
           <h4 class="important4">Misi</h4>
           <p class="importantp">${data.misi}</p>
          `,
-          imageUrl: 'assets/img/4.jpeg',
+          imageUrl: `assets/img/${data.foto}`,
           imageWidth: 150,
           imageHeight: 'auto',
           showCancelButton: true,
@@ -43,23 +43,29 @@ for (const bottom of bottoms) {
               if (result.isConfirmed) {
                 const form = new FormData();
                 const id = bottom.getAttribute("data-id");
+                const user_id = getCookieKey("id");
                 const count = bottom.getAttribute("data-count");
-                form.append("user_id", getCookieKey("id"));
+
                 form.append("id", id);
+                form.append("user_id", user_id);
                 form.append("count", count);
 
                 const response = await fetch('api/accept.php', {
                   method: 'POST',
-                  body: form
+                  body: form,
+                  credentials: 'include'
                 });
-                console.log(response);
+
                 const json = await response.json();
-                console.log(json);
-                Swal.fire(
-                  'Berhasil!',
-                  'Anda berhasil memilih calon ini!',
-                  'success'
-                )
+                if (json.status === "success") {
+                  return Swal.fire(
+                    'Berhasil!',
+                    'Anda berhasil memilih calon ini!',
+                    'success'
+                  ).then(a => window.location.reload());
+                }
+                  else 
+                    return Swal.fire('Gagal', 'Gagal Memilih calon!', 'error');
               } else {
                 swal.fire(
                   'Batal!',
