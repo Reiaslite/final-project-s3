@@ -426,12 +426,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Simple Tables</h1>
+              <h1>Data Calon</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Simple Tables</li>
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item active">Data Calon</li>
               </ol>
             </div>
           </div>
@@ -446,46 +446,47 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Responsive Hover Table</h3>
+                  <h3 class="card-title mt-1">Data Calon</h3>
 
                   <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                      <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                      <div class="input-group-append">
-                        <button type="submit" class="btn btn-default">
-                          <i class="fas fa-search"></i>
-                        </button>
-                      </div>
-                    </div>
+                    <button class="btn btn-sm btn-success">Add</button>
                   </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
+                  <!-- Ini untuk looping tablenya gan -->
                   <table class="table table-hover text-nowrap">
                     <thead>
                       <tr>
                         <th>ID</th>
                         <th>Nama</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Kelas</th>
+                        <th>Jumlah Vote</th>
+                        <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-success">Approved</span></td>
-                        <td>Bacon</td>
+                        <td>1</td> <!-- Ini untuk looping ID -->
+                        <td>Jondo</td> <!-- Ini untuk looping Nama -->
+                        <td>RPL12A</td> <!-- Ini untuk looping Kelas -->
+                        <td>52</td> <!-- Ini untuk looping Jumlah Vote -->
+                        <td class="text-center">
+                          <button class="btn btn-sm btn-primary">View</button>
+                          <button class="btn btn-sm btn-warning">Edit</button>
+                          <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
                       </tr>
                       <tr>
-                        <td>219</td>
-                        <td>Alexander Pierce</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-warning">Pending</span></td>
-                        <td>Bacon</td>
+                        <td>2</td>
+                        <td>Alpir</td>
+                        <td>RPL12F</td>
+                        <td>49</td>
+                        <td class="text-center">
+                          <button class="btn btn-sm btn-primary">View</button>
+                          <button class="btn btn-sm btn-warning">Edit</button>
+                          <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
                       </tr>
                       <tr>
                         <td>657</td>
