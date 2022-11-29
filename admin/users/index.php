@@ -1,3 +1,10 @@
+<?php
+define("BASEPATH", true);
+include_once "../../connection.php";
+
+$db = new Database();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +17,9 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -25,7 +32,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="../../index3.html" class="nav-link">Home</a>
+          <a href="../assets/index3.html" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">Contact</a>
@@ -66,7 +73,7 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <img src="../assets/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Brad Diesel
@@ -82,7 +89,7 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <img src="../assets/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     John Pierce
@@ -98,7 +105,7 @@
             <a href="#" class="dropdown-item">
               <!-- Message Start -->
               <div class="media">
-                <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <img src="../assets/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                 <div class="media-body">
                   <h3 class="dropdown-item-title">
                     Nora Silvester
@@ -158,8 +165,8 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="../../index3.html" class="brand-link">
-        <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <a href="../assets/index3.html" class="brand-link">
+        <img src="../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
       </a>
@@ -169,7 +176,7 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">Alexander Pierce</a>
@@ -194,7 +201,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
-              <a href="../../index.html" class="nav-link">
+              <a href="../assets/index.html" class="nav-link">
                 <i class="fas fa-tachometer-alt nav-icon"></i>
                 <p>Dashboard</p>
               </a>
@@ -404,7 +411,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../starter.html" class="nav-link">
+                  <a href="../assets/starter.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Starter Page</p>
                   </a>
@@ -430,7 +437,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../assets/index.html">Home</a></li>
                 <li class="breadcrumb-item active">Data Calon</li>
               </ol>
             </div>
@@ -466,18 +473,38 @@
                       </tr>
                     </thead>
                     <tbody>
+
+                      <?php 
+                        $query = "SELECT * FROM kandidat";  
+                        $result = mysqli_query($db->db,$query);
+
+                        if (mysqli_num_rows($result)>0) {
+                          while ($row = mysqli_fetch_assoc($result)) {
+                            $id = $row['id'];
+                            $nama = $row['nama'];
+                            $kelas = $row['kelas'];
+                            $count = $row['count'];               
+                      ?>
+
                       <tr>
-                        <td>1</td> <!-- Ini untuk looping ID -->
-                        <td>Jondo</td> <!-- Ini untuk looping Nama -->
-                        <td>RPL12A</td> <!-- Ini untuk looping Kelas -->
-                        <td>52</td> <!-- Ini untuk looping Jumlah Vote -->
+                        <td><?= $row['id'] ?></td> <!-- Ini untuk looping ID -->
+                        <td><?= $row['nama'] ?></td> <!-- Ini untuk looping Nama -->
+                        <td><?= $row['kelas'] ?></td> <!-- Ini untuk looping Kelas -->
+                        <td><?= $row['count'] ?></td> <!-- Ini untuk looping Jumlah Vote -->
                         <td class="text-center">
                           <button class="btn btn-sm btn-primary">View</button>
                           <button class="btn btn-sm btn-warning">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
+                          <a class="btn btn-sm btn-danger" onclick="confirm('Apakah anda yakin?')" 
+                            href='action.php?id=<?=$id?>&type=delete'>Delete</a>
                         </td>
                       </tr>
-                      <tr>
+
+                      <?php 
+                        }
+                      }
+                      ?>
+
+                      <!-- <tr>
                         <td>2</td>
                         <td>Alpir</td>
                         <td>RPL12F</td>
@@ -501,7 +528,7 @@
                         <td>11-7-2014</td>
                         <td><span class="tag tag-danger">Denied</span></td>
                         <td>Bacon</td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -531,13 +558,13 @@
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <script src="../assets/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
-  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="../../dist/js/adminlte.min.js"></script>
+  <script src="../assets/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="../../dist/js/demo.js"></script>
+  <script src="../assets/dist/js/demo.js"></script>
 </body>
 
 </html>

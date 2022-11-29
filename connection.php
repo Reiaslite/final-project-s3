@@ -114,4 +114,12 @@ class Database {
       return $result->fetch_assoc();  
     
     }
+    
+    function deleteKandidat($id) {
+      if (!isset($id)) return false;
+      $query = "DELETE FROM kandidat WHERE id=$id";
+      $result = mysqli_query($this->db, $query);
+
+      return true;
+    }
 }
