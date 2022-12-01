@@ -9,15 +9,25 @@ class Database {
     //  $sambung = mysqli_connect(DB_HOST,DB_USER, DB_PASS, DB_NAME);
 
     public function __construct() {
-        $this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-        if ($this->db->connect_errno):
-            echo "Failed to connect to MySQL: " . $this->db->connect_error;
-            exit();
-        endif;
+      $this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+      if ($this->db->connect_errno):
+        echo "Failed to connect to MySQL: " . $this->db->connect_error;
+        exit();
+      endif;
     }
-
-
-
+    
+    
+    function addKandidat($nama, $kelas, $visi, $misi){
+      try {
+        $query = "INSERT INTO kandidat (nama, kelas, visi, misi) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssss", $nama, $kelas, $visi, $misi);
+        $stmt->execute();
+      } catch (Exception $e) {
+        echo $e->getMessage();
+      }
+    }
+    
     function insert($nama, $nis, $email, $password) {
         try {
             $query = "INSERT INTO siswa (nama, nis, email, password) VALUES (?, ?, ?, ?)";
@@ -47,6 +57,7 @@ class Database {
         if ($row['is_voted'] == 1) {
           return false;
         }
+        
 
         $_SESSION['nama']=$row["nama"];
         $_SESSION['id'] = $row['id'];
@@ -67,6 +78,17 @@ class Database {
         session_unset();
         session_destroy();
         header("Location:signin.php");
+    }
+
+    function updateKandidat($id, $nama, $kelas, $visi, $misi){
+      $query = "UPDATE kandidat SET nama ='$nama', kelas='$kelas', misi='$misi', visi='$visi' WHERE id='$id'";
+      $stmt = mysqli_query($this->db, $query);
+
+      if (mysqli_num_rows($stmt)>0) {
+        return true;
+        
+      }
+      return false;
     }
 
 
@@ -122,4 +144,5 @@ class Database {
 
       return true;
     }
+
 }

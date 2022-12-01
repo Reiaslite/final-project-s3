@@ -485,6 +485,8 @@ $db = new Database();
                             $id = $row['id'];
                             $nama = $row['nama'];
                             $kelas = $row['kelas'];
+                            $visi = $row['visi'];
+                            $misi = $row['misi'];
                             $count = $row['count'];               
                       ?>
 
@@ -494,10 +496,9 @@ $db = new Database();
                         <td><?= $row['kelas'] ?></td> <!-- Ini untuk looping Kelas -->
                         <td><?= $row['count'] ?></td> <!-- Ini untuk looping Jumlah Vote -->
                         <td class="text-center">
-                          <button class="btn btn-sm btn-primary view">View</button>
-                          <button class="btn btn-sm btn-warning update">Edit</button>
-                          <a class="btn btn-sm btn-danger" onclick="confirm('Apakah anda yakin?')" 
-                            href='action.php?id=<?=$id?>&type=delete'>Delete</a>
+                          <button class="btn btn-sm btn-primary view" data-id= '<?=$id?>'>View</button>
+                          <button class="btn btn-sm btn-warning update" data-id= '<?=$id?>'>Edit</button>
+                          <a class="btn btn-sm btn-danger" href='action.php?id=<?=$id?>&type=delete'>Delete</a>
                         </td>
                       </tr>
 
@@ -506,31 +507,6 @@ $db = new Database();
                       }
                       ?>
 
-                      <!-- <tr>
-                        <td>2</td>
-                        <td>Alpir</td>
-                        <td>RPL12F</td>
-                        <td>49</td>
-                        <td class="text-center">
-                          <button class="btn btn-sm btn-primary">View</button>
-                          <button class="btn btn-sm btn-warning">Edit</button>
-                          <button class="btn btn-sm btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>657</td>
-                        <td>Bob Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-primary">Approved</span></td>
-                        <td>Bacon</td>
-                      </tr>
-                      <tr>
-                        <td>175</td>
-                        <td>Mike Doe</td>
-                        <td>11-7-2014</td>
-                        <td><span class="tag tag-danger">Denied</span></td>
-                        <td>Bacon</td>
-                      </tr> -->
                     </tbody>
                   </table>
                 </div>
