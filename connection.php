@@ -54,9 +54,19 @@ class Database {
       $stmt = mysqli_query($this->db, $query);
       if ($stmt->num_rows >0) {
         $row = mysqli_fetch_assoc($stmt);
+
         if ($row['is_voted'] == 1) {
           return false;
         }
+        
+        if($row['role']=="admin"){
+          $_SESSION['role']='admin';
+        
+        }else{
+          $_SESSION['role']='user';
+        }
+
+        
         
 
         $_SESSION['nama']=$row["nama"];

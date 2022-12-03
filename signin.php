@@ -1,6 +1,6 @@
 <?php 
 
-    // session_start();
+ 
     define('BASEPATH','public');
     require_once 'connection.php';
     //jika sudah login tidak bisa kembali kehalaman login
@@ -15,10 +15,15 @@
         $password = $_POST['password'];
         
         $result = $db->login($name, $password);
+        var_dump($_SESSION['role']);
         if ($result === true){
             $_SESSION['login'] = true;
+            if ($_SESSION['role']=='admin') {
+                header("Location: admin/users/index.php");
+                exit;
+            }
             header("Location: index.php");
-            // echo "selamat datang " . $_SESSION['nama'];
+           
             exit;
         } else if ($result === false) {
             echo "<script>
