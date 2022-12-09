@@ -17,16 +17,24 @@ class Database {
     }
     
     
-    function addKandidat($nama, $kelas, $visi, $misi){
+   
+    function addKandidat($nama, $kelas, $visi, $misi, $foto){
+
       try {
-        $query = "INSERT INTO kandidat (nama, kelas, visi, misi) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO kandidat (nama, kelas, visi, misi, foto) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssss", $nama, $kelas, $visi, $misi);
+        $stmt->bind_param("sssss", $nama, $kelas, $visi, $misi, $foto);
         $stmt->execute();
+        return true;
       } catch (Exception $e) {
         echo $e->getMessage();
+        return false;
       }
+
     }
+
+
+
     
     function insert($nama, $nis, $email, $password) {
         try {
@@ -90,15 +98,17 @@ class Database {
         header("Location:signin.php");
     }
 
-    function updateKandidat($id, $nama, $kelas, $visi, $misi){
-      $query = "UPDATE kandidat SET nama ='$nama', kelas='$kelas', misi='$misi', visi='$visi' WHERE id='$id'";
+    function updateKandidat($id, $nama, $kelas, $visi, $misi, $foto){
+      $query = "UPDATE kandidat SET nama ='$nama', kelas='$kelas', misi='$misi', visi='$visi', foto='$foto' WHERE id='$id'";
       $stmt = mysqli_query($this->db, $query);
 
       if (mysqli_num_rows($stmt)>0) {
         return true;
         
+      }else{
+        return false;
       }
-      return false;
+      
     }
 
 

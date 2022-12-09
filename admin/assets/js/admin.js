@@ -9,7 +9,7 @@ for (const view of views) {
         const data = json.data;
         Swal.fire({
             text: 'Modal with a custom image.',
-            imageUrl: '../../assets/img/4.jpeg',
+            imageUrl: `../../assets/img/${data.foto}`,
             imageWidth: 100,
             imageHeight: 100,
             imageAlt: 'Custom image',
@@ -31,12 +31,12 @@ document.getElementsByClassName('add')[0].addEventListener('click', () => {
         text: 'Modal with a custom image.',
         html:`
         <h2>Tambah Data Kandidat</h2>
-        <form method="post" class="form" id="form-id">
+        <form method="post" class="form" id="form-id" enctype="multipart/form-data">
             <input type="text" placeholder="nama" name="nama" class="form-control input" id='name'>
             <input type="text" placeholder="kelas" name="kelas" class="form-control input" id='kelas'>
             <textarea type="text" placeholder="visi" name="visi" class="form-control textarea" id='visi'></textarea>
             <textarea type="text" placeholder="misi" name="misi" class="form-control textarea" id='misi'></textarea>
-            <input type="file" placeholder="file" name="file" class="form-control input" id='gambar'>
+            <input type="file" placeholder="file" name="gambar" class="form-control input" id='gambar'>
             </form>
             `,
         showCancelButton: true,
@@ -51,12 +51,12 @@ document.getElementsByClassName('add')[0].addEventListener('click', () => {
             const kelas = Swal.getPopup().querySelector('#kelas').value
             const visi = Swal.getPopup().querySelector('#visi').value
             const misi = Swal.getPopup().querySelector('#misi').value
-
-            if(!nama || !kelas || !visi || !misi){
+            const foto = Swal.getPopup().querySelector('#gambar').value
+            if(!nama || !kelas || !visi || !misi || !foto){
                 Swal.showValidationMessage("Tolong isi dengan lengkap")
             }
 
-            return { nama, kelas, visi, misi}
+            return { nama, kelas, visi, misi, foto}
         }    
     }).then(async (result)=>{
         if(result.value){
@@ -69,7 +69,18 @@ document.getElementsByClassName('add')[0].addEventListener('click', () => {
                 method: "POST",
                 body: form,
             })
-            console.log(res)
+            
+            const data= await res.json();
+            if (data.status == 'success') {
+                Swal.fire({
+                    title: 'Berhasil',
+                    text: 'Data berhasil ditambahkan',
+                    icon: 'success',
+                    preConfirm: () => {
+                        window.location.reload();
+                    } 
+                })
+            }
         }
 
     })
@@ -82,7 +93,7 @@ document.getElementsByClassName('add')[0].addEventListener('click', () => {
 const updates = document.getElementsByClassName('update');
 for (const update of updates) {
 
-    //==ini yang gw tambahin
+    
     update.addEventListener('click', async() => {
         const id = update.getAttribute('data-id');
          console.log(id);
@@ -90,20 +101,20 @@ for (const update of updates) {
         const response = await fetch(`../../api/getkandidat.php?id=${id}`);
         const json= await response.json();
         const data = json.data;
-        // //==batas==
+    
 
         Swal.fire({
             text: 'Modal with a custom image.',
             html:`
             <h2>Ubah Data Kandidat</h2>
-            <form method="post" class="form" id="form-id">
+            <form method="post" class="form" id="form-id" enctype="multipart/form-data">
 
-                <input type="text" placeholder="id" name="id" class="form-control input" id='id' value='${data.id}' readonly='readonly'>
+                <input type="text" placeholder="id" name="id" class="form-control input" id='id' value='${data.id}' readonly>
                 <input type="text" placeholder="nama" name="nama" class="form-control input" id='name' value='${data.nama}'>
                 <input type="text" placeholder="kelas" name="kelas" class="form-control input" id='kelas' value='${data.kelas}'>
                 <textarea type="text" placeholder="visi" name="visi" class="form-control textarea" id='visi'>${data.visi}</textarea>
                 <textarea type="text" placeholder="misi" name="misi" class="form-control textarea" id='misi'>${data.misi}</textarea>
-                <input type="file" placeholder="file" name="file" class="form-control input">
+                <input type="file" placeholder="file" name="file" class="form-control input" id='gambar' >
                 </form>
                 `,
             showCancelButton: true,
@@ -118,12 +129,12 @@ for (const update of updates) {
                 const kelas = Swal.getPopup().querySelector('#kelas').value
                 const visi = Swal.getPopup().querySelector('#visi').value
                 const misi = Swal.getPopup().querySelector('#misi').value
-    
-                if(!nama || !kelas || !visi || !misi){
+                const foto = Swal.getPopup().querySelector('#gambar').value
+                if(!nama || !kelas || !visi || !misi || !foto){
                     Swal.showValidationMessage("Tolong isi dengan lengkap")
                 }
     
-                return { id, nama, kelas, visi, misi}
+                return { id, nama, kelas, visi, misi, foto}
             }
 
 
@@ -131,16 +142,29 @@ for (const update of updates) {
             if(result.value){
                 const _=document.querySelector('#form-id');
                 const form = new FormData(_);
-    
-    
-    
+
                 const res = await fetch (`../../api/admin-update.php`, {
                     method: "POST",
                     body: form,
+
                 })
-                console.log(res)
+                const datas= await res.json();
+                if (datas.status == 'success') {
+                    Swal.fire({
+                        title: 'Berhasil',
+                        text: 'Data berhasil ditambahkan',
+                        icon: 'success',
+                        preConfirm: () => {
+                            window.location.reload();
+                        } 
+                    })
+                }
+               
             }
+
     
         })
+
+
     })
 }

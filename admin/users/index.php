@@ -481,6 +481,7 @@ $db = new Database();
                         $result = mysqli_query($db->db,$query);
 
                         if (mysqli_num_rows($result)>0) {
+                          $nomor = 0;
                           while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];
                             $nama = $row['nama'];
@@ -491,7 +492,7 @@ $db = new Database();
                       ?>
 
                       <tr>
-                        <td><?= $row['id'] ?></td> <!-- Ini untuk looping ID -->
+                        <td><?= ++$nomor ?></td> <!-- Ini untuk looping ID -->
                         <td><?= $row['nama'] ?></td> <!-- Ini untuk looping Nama -->
                         <td><?= $row['kelas'] ?></td> <!-- Ini untuk looping Kelas -->
                         <td><?= $row['count'] ?></td> <!-- Ini untuk looping Jumlah Vote -->
@@ -501,8 +502,7 @@ $db = new Database();
                           <a class="btn btn-sm btn-danger" href='action.php?id=<?=$id?>&type=delete'>Delete</a>
                         </td>
                       </tr>
-
-                      <?php 
+                      <?php
                         }
                       }
                       ?>
