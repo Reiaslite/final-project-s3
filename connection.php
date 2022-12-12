@@ -102,12 +102,18 @@ class Database {
       $query = "UPDATE kandidat SET nama ='$nama', kelas='$kelas', misi='$misi', visi='$visi', foto='$foto' WHERE id='$id'";
       $stmt = mysqli_query($this->db, $query);
 
-      if (mysqli_num_rows($stmt)>0) {
+
+      if ($stmt === true) {
         return true;
-        
       }else{
         return false;
       }
+      // if (mysqli_num_rows($stmt)>0) {
+      //   return true;
+        
+      // }else{
+      //   return false;
+      // }
       
     }
 

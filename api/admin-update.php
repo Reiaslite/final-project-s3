@@ -1,5 +1,6 @@
 <?php
 define('BASEPATH', true);
+
 include_once "../connection.php";
 $db = new Database();
 
