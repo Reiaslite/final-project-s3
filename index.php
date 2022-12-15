@@ -114,7 +114,7 @@ $db = new Database();
         <div class="container-menu">
             <ul class="menu-mobile">
                 <li class="list-menu">
-                    <h5>User</h5>
+                    <h5><?= $_SESSION['nama'] ?></h5>
                 </li>
                 <li class="list-menu">
                     <button type="submit" class="btn-logout">Logout</button>
