@@ -18,7 +18,6 @@ class Database {
     
     
    
-     
     function addKandidat($nama, $kelas, $visi, $misi, $foto){
 
       try {
