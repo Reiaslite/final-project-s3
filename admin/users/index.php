@@ -108,7 +108,7 @@ $db = new Database();
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title mt-1">Data Calon</h3>
+                  <h3 class="card-title mt-1">Data Calon (Unsorted)</h3>
 
                   <div class="card-tools">
                     <button class="btn btn-sm btn-success add">Add</button>
@@ -144,6 +144,58 @@ $db = new Database();
                             $count = $row['count'];               
                       ?>
 
+                      <tr>
+                        <td><?= ++$nomor ?></td> <!-- Ini untuk looping ID -->
+                        <td><?= $row['nama'] ?></td> <!-- Ini untuk looping Nama -->
+                        <td><?= $row['kelas'] ?></td> <!-- Ini untuk looping Kelas -->
+                        <td><?= $row['count'] ?></td> <!-- Ini untuk looping Jumlah Vote -->
+                        <td class="text-center">
+                          <button class="btn btn-sm btn-primary view" data-id= '<?=$id?>'>View</button>
+                          <button class="btn btn-sm btn-warning update" data-id= '<?=$id?>'>Edit</button>
+                          <a class="btn btn-sm btn-danger" href='action.php?id=<?=$id?>&type=delete'>Delete</a>
+                        </td>
+                      </tr>
+                      <?php
+                        }
+                      }
+                      ?>
+
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title mt-1">Data Calon (Bubble Sorted)</h3>
+
+                  <div class="card-tools">
+                    <button class="btn btn-sm btn-success add">Add</button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                  <!-- Ini untuk looping tablenya gan -->
+                  <table class="table table-hover text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Jumlah Vote</th>
+                        <th class="text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <?php
+                        require_once 'sort.php';
+                        $nomor = 0;
+                        foreach ($arr as $arrs){
+                          $sorted = $arrs['count'];
+                          $result = mysqli_query($db->db,"SELECT * FROM kandidat WHERE count = '$sorted'");
+                          while($row = mysqli_fetch_assoc($result)){ ?>
                       <tr>
                         <td><?= ++$nomor ?></td> <!-- Ini untuk looping ID -->
                         <td><?= $row['nama'] ?></td> <!-- Ini untuk looping Nama -->
