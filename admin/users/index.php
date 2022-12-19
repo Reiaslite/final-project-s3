@@ -3,6 +3,10 @@ define("BASEPATH", true);
 include_once "../../connection.php";
 
 $db = new Database();
+if(!isset($_SESSION['login'])){
+  header("Location: ../../signin.php");
+   exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +48,7 @@ $db = new Database();
         <!-- Navbar Search -->
         <li class="nav-item">
           <!-- Tombol Logout -->
-          <a href="#" class="nav-link btn btn-sm btn-danger" style="color: white;">
+          <a href="logout.php" class="nav-link btn btn-sm btn-danger" style="color: white;">
             <i class="fas fa-sign-out-alt"></i>
             Logout
           </a>
