@@ -38,6 +38,18 @@ $db = new Database();
           <a href="index.php" class="nav-link">Data Calon</a>
         </li>
       </ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+        <li class="nav-item">
+          <!-- Tombol Logout -->
+          <a href="#" class="nav-link btn btn-sm btn-danger" style="color: white;">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
     </nav>
     <!-- /.navbar -->
 
@@ -72,7 +84,6 @@ $db = new Database();
                 <i class="fas fa-table nav-icon"></i>
                 <p>Data Calon</p>
               </a>
-
             </li>
 
           </ul>
