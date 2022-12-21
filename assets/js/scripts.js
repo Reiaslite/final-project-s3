@@ -88,7 +88,7 @@ for (const bottom of bottoms) {
 // events links on click
 const links =  document.getElementsByClassName('page-scroll');
 for (const link of links) {
-  link.addEventListener('cl', (e) => {
+  link.addEventListener('click', (e) => {
     const attr = link.getAttribute('href');
     const elementHref = document.querySelector(attr);
     // console.log(elementHref.offsetTop)
