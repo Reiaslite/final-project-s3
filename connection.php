@@ -32,9 +32,6 @@ class Database {
       }
 
     }
-
-
-
     
     function insert($nama, $nis, $email, $password) {
         try {
@@ -42,7 +39,6 @@ class Database {
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("ssss", $nama, $nis, $email, $password);
             $stmt->execute();
-            
             // return $stmt->affected_rows;
            } 
            catch (mysqli_sql_exception $e) {
@@ -50,10 +46,8 @@ class Database {
                 echo "Email sudah digunakan";
                 return false;
              }
-            
         }
-        return true;
-       
+        return true;  
     }
 
     function login($email, $password){
@@ -170,5 +164,26 @@ class Database {
 
       return true;
     }
+    
+  //   function bubble_sort($arr) {
+  //   $query = "SELECT * FROM kandidat";
+  //   $stmt = $this->db->prepare($query);
+  //   $stmt->execute();
 
+  //   $result = $stmt->get_result();
+  //   $rows = $result->fetch_all(MYSQLI_ASSOC);
+  //     $size = count($arr)-1;
+  //     for ($i=0; $i<$size; $i++) {
+  //         for ($j=0; $j<$size-$i; $j++) {
+  //             $k = $j+1;
+  //             if ($arr[$k]['count'] > $arr[$j]['count']) {
+  //                 // Swap elements at indices: $j, $k
+  //                 list($arr[$j], $arr[$k]) = array($arr[$k], $arr[$j]);
+  //             }
+  //         }
+  //     }
+  //     return $arr;
+  // }
+  
 }
+
