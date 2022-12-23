@@ -5,7 +5,7 @@ include_once 'const.php';
 session_start();
 class Database {    
     public $db;
-    private $error;
+  
     //  $sambung = mysqli_connect(DB_HOST,DB_USER, DB_PASS, DB_NAME);
 
     public function __construct() {
