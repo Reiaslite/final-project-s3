@@ -245,7 +245,7 @@ if(!isset($_SESSION['login'])){
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <strong>Copyright &copy; 2014-2021 <a href="#" style="text-decoration: underline;">Kelompok 4 - ICIKIWIR</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2014-2021 <a href="#" style="text-decoration: underline;">Kelompok 4</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->
