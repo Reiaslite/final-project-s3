@@ -186,7 +186,7 @@ if(!isset($_SESSION['login'])){
                   <h3 class="card-title mt-1">Data Calon (Bubble Sorted)</h3>
 
                   <div class="card-tools">
-                    <button class="btn btn-sm btn-success add">Add</button>
+                    <!-- <button class="btn btn-sm btn-success add">Add</button> -->
                   </div>
                 </div>
                 <!-- /.card-header -->
@@ -199,7 +199,7 @@ if(!isset($_SESSION['login'])){
                         <th>Nama</th>
                         <th>Kelas</th>
                         <th>Jumlah Vote</th>
-                        <th class="text-center">Action</th>
+                        <!-- <th class="text-center">Action</th> -->
                       </tr>
                     </thead>
                     <tbody>
@@ -216,11 +216,11 @@ if(!isset($_SESSION['login'])){
                         <td><?= $row['nama'] ?></td> <!-- Ini untuk looping Nama -->
                         <td><?= $row['kelas'] ?></td> <!-- Ini untuk looping Kelas -->
                         <td><?= $row['count'] ?></td> <!-- Ini untuk looping Jumlah Vote -->
-                        <td class="text-center">
+                        <!-- <td class="text-center">
                           <button class="btn btn-sm btn-primary view" data-id= '<?=$id?>'>View</button>
                           <button class="btn btn-sm btn-warning update" data-id= '<?=$id?>'>Edit</button>
                           <a class="btn btn-sm btn-danger" href='action.php?id=<?=$id?>&type=delete'>Delete</a>
-                        </td>
+                        </td> -->
                       </tr>
                       <?php
                         }
