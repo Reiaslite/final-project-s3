@@ -21,7 +21,7 @@
             if ($_SESSION['role']=='admin') {
                 header("Location: admin/users/index.php");
                 exit;
-            }
+            } 
             header("Location: index.php");
            
             exit;

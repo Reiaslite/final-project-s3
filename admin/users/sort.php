@@ -6,7 +6,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-function bubble_sort($arr) {
+function bubble_sort($arr) {    
     $size = count($arr)-1;
     for ($i=0; $i<$size; $i++) {
         for ($j=0; $j<$size-$i; $j++) {

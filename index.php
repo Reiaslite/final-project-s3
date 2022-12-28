@@ -126,7 +126,7 @@ $db = new Database();
 
     <footer>
         <div class="container">
-            <h5> <strong>Copyright &copy; 2022 <a href="#">Kelompok 4 - ICIKIWIR</a>.</strong> All rights reserved.</h5>
+            <h5> <strong>Copyright &copy; 2022 <a href="#">Kelompok 4</a>.</strong> All rights reserved.</h5>
         </div>
     </footer>
 

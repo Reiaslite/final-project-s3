@@ -373,6 +373,7 @@ nav > .nav-container > .menu > .list-menu > a:hover {
 
 .contents > .card > .image > img {
     width: 100%;
+    height: 180px;
 }
 
 .contents > .card > .desc {
