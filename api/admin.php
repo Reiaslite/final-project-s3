@@ -4,8 +4,8 @@ include_once "../connection.php";
 $db = new Database();
 
 $nama = $_POST['nama'];
-$kelas = $_POST['visi'];
-$visi = $_POST['misi'];
+$kelas = $_POST['kelas'];
+$visi = $_POST['visi'];
 $misi = $_POST['misi'];
 $foto = $_FILES['gambar'];
 

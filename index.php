@@ -88,7 +88,7 @@ $db = new Database();
                 <div class="desc">
                     <div class="top">
                         <h5><?= $row['nama']?></h5>
-                        <p><?= $row['misi']?></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.......</p>
                     </div>
                     <div class="bottom" data-id="<?= $row['id'] ?>" data-count="<?= $row['count'] ?>">
                         <div class="left">

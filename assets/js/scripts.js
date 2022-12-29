@@ -18,7 +18,7 @@ for (const bottom of bottoms) {
           <h4 class="important4">Visi</h4>
           <p class="important">${data.visi}</p>
           <h4 class="important4">Misi</h4>
-          <p class="importantp">${data.misi}</p>
+          <p class="important">${data.misi}</p>
          `,
           imageUrl: `assets/img/${data.foto}`,
           imageWidth: 150,
